@@ -11,7 +11,6 @@ public class MainClass extends JFrame{
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-			System.out.println("Project is on");
 			MainClass mc = new MainClass();
 			mc.setVisible(true);
 	}
@@ -42,17 +41,36 @@ public class MainClass extends JFrame{
 		fileMenu.add(exitMenuItem);
 		
 		JMenuItem addMenuItem = new JMenuItem("Add a citation");
-		JMenuItem deleteMenuItem = new JMenuItem("Delete a citation");
+		setMenuItemAction(addMenuItem, new AddCitationWindow());
+		
+		JMenuItem editMenuItem = new JMenuItem("Edit a citation");
+		setMenuItemAction(editMenuItem, new EditCitationWindow());
+		
 		JMenuItem listMenuItem = new JMenuItem("List all citations");
+		setMenuItemAction(listMenuItem, new ListCitationWindow());
+		
 		JMenuItem searchMenuItem = new JMenuItem("Search a citation");
+		setMenuItemAction(searchMenuItem, new SearchCitationWindow());
+		
 		toolsMenu.add(addMenuItem);
-		toolsMenu.add(deleteMenuItem);
+		toolsMenu.add(editMenuItem);
 		toolsMenu.addSeparator();
 		toolsMenu.add(listMenuItem);
 		toolsMenu.add(searchMenuItem);
 		
 		setJMenuBar(menuBar);
 		
+	}
+	
+	void setMenuItemAction(JMenuItem mItem, JFrame itemFrame) {
+		mItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				itemFrame.setVisible(true);
+			}
+		});
 	}
 
 }
