@@ -1,6 +1,7 @@
 import java.awt.MenuBar;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -9,18 +10,35 @@ import javax.swing.JMenuItem;
 
 public class MainClass extends JFrame{
 
+	public static Connection db_connection;
+	private static String db_user_name = "sqluser";
+	private static String db_user_pwd = "sqluserpw";
+	private static String db_name = "citation_db";
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 			MainClass mc = new MainClass();
 			mc.setVisible(true);
 	}
 		
-	MainClass(){
+	public MainClass(){
 		setTitle("Citation Management System");
 		setSize(800, 600);
+		ModelLayer model_layer = new ModelLayer();
+		try {
+			model_layer.connectDB(MainClass.db_user_name,MainClass.db_user_pwd, MainClass.db_name);
+			db_connection = model_layer.getConnectionObj();
+			
+			if(db_connection==null) {
+				System.out.println("Null");
+			}else {
+				System.out.println("Not Null");
+			}
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
 		setMenu();
 	}
-	
 	void setMenu() {
 		JMenuBar menuBar = new JMenuBar();
 		
