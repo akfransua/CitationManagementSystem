@@ -194,9 +194,7 @@ public class AddCitationWindow extends JFrame {
 		try {
 			// connection string
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			//Connection con = DriverManager
-			//		.getConnection("jdbc:mysql://localhost/citation_Management?" + "user=fransua&password=root");
-			//Statement st = con.createStatement();
+			
 
 			Statement st = MainClass.db_connection.createStatement();
 			st.execute(
