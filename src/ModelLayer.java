@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class ModelLayer {
-	private Connection connect = null;
+	private static Connection connect = null;
     private Statement statement = null;
     private PreparedStatement preparedStatement = null;
     private ResultSet resultSet = null;
@@ -28,8 +28,8 @@ public class ModelLayer {
 
 	}
     
-    public Connection getConnectionObj() {
-    	return connect;
+    public static Connection getConnectionObj() {
+    	return ModelLayer.connect;
     }
 
 }
