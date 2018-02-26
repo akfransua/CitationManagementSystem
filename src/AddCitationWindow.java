@@ -109,8 +109,9 @@ public class AddCitationWindow extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				AddCitationWindow.this.setVisible(false);
 				// TODO Auto-generated method stub
-				System.exit(0);
+				//System.exit(0);
 			}
 		});
 

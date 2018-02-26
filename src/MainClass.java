@@ -30,9 +30,9 @@ public class MainClass extends JFrame{
 			db_connection = model_layer.getConnectionObj();
 			
 			if(db_connection==null) {
-				System.out.println("Null");
+				System.out.println("Connection:Null");
 			}else {
-				System.out.println("Not Null");
+				System.out.println("Connection Successful: Not Null");
 			}
 		}catch(Exception ex) {
 			ex.printStackTrace();

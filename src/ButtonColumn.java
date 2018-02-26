@@ -47,11 +47,10 @@ public class ButtonColumn extends AbstractCellEditor
 
 		renderButton = new JButton();
 		editButton = new JButton();
-		editButton.setFocusPainted( false );
-		editButton.addActionListener( this );
+		editButton.setFocusPainted(false);
+		editButton.addActionListener(this);
 		originalBorder = editButton.getBorder();
 		setFocusBorder( new LineBorder(Color.BLUE) );
-
 		TableColumnModel columnModel = table.getColumnModel();
 		columnModel.getColumn(column).setCellRenderer( this );
 		columnModel.getColumn(column).setCellEditor( this );
